@@ -1,41 +1,51 @@
-<<<<<<< HEAD
 <div class="row">
 
+    <h3>Existing Catalog Id - title</h3>
     {{#each allCatalogsData}}
     <div class="span8">
-        <div id="data-visuals"> {{title}}</div>
+        
+        <div id="data-visuals">{{this.id}} - {{this.title}} <span><button id='{{this.id}}' title='{{this.title}}' catid='{{this.id}}' >Update</button></span></div>
+        <br/>
     </div>
     {{/each}}
+
+    <hr/>
+    <h3>Create new catalog</h3>
+    <form action="/catalogs" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" disabled="true" placeholder="journal" name="journal" value="hardcoded journal">
+        <input type="text" disabled="true" placeholder="publisher" name="publisher"  value="hardcoded publisher">
+        <input type="text" disabled="true" placeholder="edition" name="edition" value="hardcoded edition">
+        <input type="text" disabled="true" placeholder="author" name="author" value="hardcoded author">
+        <input type="submit" value="Create New Catalog"/>
+    </form>
 </div>
-=======
-<!DOCTYPE html>
-<html lang="en">
+<div>
+     <hr/>
+    <h3>Update catalog</h3>
+    <form action="/catalogs" method="POST">
+        <input id="inputTitle" type="text" placeholder="title" name="title">
+        <input type="text" disabled="true" placeholder="journal" name="journal" value="hardcoded journal">
+        <input type="text" disabled="true" placeholder="publisher" name="publisher"  value="hardcoded publisher">
+        <input type="text" disabled="true" placeholder="edition" name="edition" value="hardcoded edition">
+        <input type="text" disabled="true" placeholder="author" name="author" value="hardcoded author">
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Best Website</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="stylesheet" href="/css/main.min.css">
-</head>
+        <input type="hidden" name="id" id="catid" />
+        <input type="submit" value="Update Catalog"/>
+    </form>
+</div>
 
-<body class="{{template}}">
-    <div class="container">
-        {{{body}}}
 
-        <div class="row">
 
-            {{#each allCatalogsData}}
-            <div class="span8">
-                <div id="data-visuals"> {{title}}</div>
-            </div>
-            {{/each}}
-        </div>
+<script>
+    //the aim of this is to fill in the tittle input when update is clicked
+    document.addEventListener('click', function(event) {
+        if(event.target.localName == 'button'){
+            var inputTitle = document.getElementById('inputTitle');
+            var catid = document.getElementById('catid');
 
-    </div>
-
-</body>
-
-</html>
->>>>>>> a6c611dfe24f9a77b4af6238ba7ada7677f8d4bb
+            inputTitle.value = event.target.attributes.title.value;
+            catid.value = event.target.attributes.catid.value;
+        }
+    })
+</script>

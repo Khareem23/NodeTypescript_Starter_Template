@@ -1,16 +1,9 @@
 {
   "type": "mysql",
-<<<<<<< HEAD
   "host": "localhost",
   "port": 3306,
   "username": "root",
   "password": "",
-=======
-  "host": "192.168.64.2",
-  "port": 3306,
-  "username": "khareem23",
-  "password": "khareem234@#",
->>>>>>> a6c611dfe24f9a77b4af6238ba7ada7677f8d4bb
   "database": "typescriptStarterDB",
   "synchronize": true,
   "logging": false,
