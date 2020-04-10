@@ -24,7 +24,11 @@ class CatalogController implements IControllerBase {
   getAllCatalogs = async (req: Request, res: Response) => {
     const catalogRepo = getManager().getRepository(Catalog);
     const allCatalogs = await catalogRepo.find();
+<<<<<<< HEAD
     
+=======
+    console.log(allCatalogs);
+>>>>>>> a6c611dfe24f9a77b4af6238ba7ada7677f8d4bb
     res.render('index', { allCatalogsData: allCatalogs });
   };
 
