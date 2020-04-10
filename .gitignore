@@ -5,3 +5,5 @@ build/
 tmp/
 temp/
 .ormconfig.json
+src/views/zante/
+src/views/zante.zip
